@@ -45,3 +45,36 @@ Run (*nix):
 Run unit tests and benchmark:
 
 `go test -bench=.`
+
+Windows 10 installation
+
+I share my installation steps for windows
+windows 10 pro
+-	Install Go and follow their instructions to configure it (e.g.GOBIN, GOPATH, GOROOT)
+-	Install mingw64 (read their instructions)
+        o	https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/mingw-w64-v5.0.3.zip
+
+-	Install the warpwallet_cracker.go
+        o	You can do it automatically with command go get but I did it manually
+        o	Download zip from
+        	Github.com/ctz/go-fastpbkdf2
+        	Github.com/nachowski/warpwallet_cracker
+        	Github.com/vsergeev/btckey
+         o	Create the following directories under C:\Users\MYUSER\go
+         o	 \src\github.com\ctz\go-fastpbkdf2
+         o	 \src\github.com\nachowski\warpwallet_cracker
+         o	 \src\github.com\vsergeev\btckey
+          Unzip each, under it’s correspondent directory
+From the mingw64 console run 
+Cd go
+go build src/github.com/nachowski/warpwallet_cracker.go
+
+known issues:
+openssl/sha.h   look for your openssl installation and copy directory \openssl containing sha.h 
+paste it so it must be like this
+C:\Users\MYUSER\go\src\github.com\ctz\go-fastpbkdf2\openssl
+
+COLLECT2.EXE Delete it or rename it
+
+-lcrypto look for libcrypto.a in your pc and paste it as follows
+C:\Program Files\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev0\mingw64\lib\gcc\x86_64-w64-mingw32\7.2.0
